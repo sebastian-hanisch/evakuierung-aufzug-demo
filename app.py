@@ -60,6 +60,17 @@ Weiter unten: vier **Kernfragen**, der Expander **🔧 Wie wir das erreichen –
 """
 )
 
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/evakuierung-aufzug-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Ein kleines Gebäude mit zwei bis vier Etagen wird geräumt. Die **Treppe** lässt je Zeitschritt nur eine bestimmte Zahl von Menschen durch, das lässt sich als **Fluss** rechnen. Der **Aufzug** hat Kabinen mit begrenzter Platzzahl, hält an mehreren Etagen, und eine Fahrt dauert nach der höchsten Etage. **Menschen mit eingeschränkter Mobilität** (Aufzugspflicht) dürfen nur den Aufzug nehmen, die übrigen wählen frei. Die Demo vergleicht drei Rechnungen: das reine Flussmodell, das jeder Etage alle Kabinen für sich gibt, den exakten Plan und den Fluss mit einer Schranke aus der Aufzugszeit der Pflichtgruppe. So zeigt sie, wo das einfache Modell zu kurz rechnet und was den Fehler schließt. Alle Werte sind erfundene Annahmen eines Mini-Gebäudes. Die Ergebnisse sagen nichts über reale Gebäude, Brandschutz oder reale Zeiten.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/evakuierung-aufzug-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
+
 st.caption("🔗 Die Adresszeile oben spiegelt Ihre aktuelle Konfiguration wider – einfach kopieren, um ein Szenario zu teilen.")
 
 load_permalink_settings()
@@ -218,6 +229,28 @@ with st.expander("🔧 Wie wir das erreichen – vollständiger Methodenvergleic
         st.markdown(C.ASSUMPTIONS_MARKDOWN)
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/evakuierung-aufzug-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind ein Gebäude mit Etagen $f = 1, \dots, F$, je Etage $n_f$ Menschen mit Aufzugspflicht und $g_f$ Gehende; Treppe und Aufzug mit den Werten der Seitenleiste. Gesucht ist die Aufteilung der Gehenden und die Fahrten, bei denen die letzte Person möglichst früh draußen ist.
+
+| Symbol | Bedeutung |
+|---|---|
+| $F$, $f$ | Zahl der Etagen, Etage ($f = 1$ ist die unterste über dem Ausgang) |
+| $n_f$, $g_f$ | Menschen mit Aufzugspflicht, Gehende auf Etage $f$ |
+| $a_f$ | Gehende auf Etage $f$, die den Aufzug nehmen ($0 \le a_f \le g_f$) |
+| $C$, $\tau_s$ | Durchsatz der Treppe je Flucht und Zeitschritt, Gehzeit je Flucht |
+| $E$, $K$, $\tau_e$, $d$ | Kabinen, Kapazität je Fahrt, Zeit je Etage im Aufzug, Halt |
+| $x_{f,t}$, $w_{f,t}$ | Personen, die im Zeitschritt $t$ von Etage $f$ die Flucht nach unten antreten, Personen, die dort zu Beginn von $t$ auf der Treppe warten |
+| $y_{f,j}$ | Personen von Etage $f$ in Fahrt $j$ ($j = 1, \dots, J$) |
+| $H_j$, $s_j$, $D_j$ | höchste Etage mit Personen in Fahrt $j$, Zahl der Etagen mit Personen, Dauer, die die Fahrt die Kabine belegt |
+| $z_{j,e}$ | 1, wenn Fahrt $j$ von Kabine $e$ gefahren wird |
+| $T$ | Räumungszeit: Zeitschritt, in dem die letzte Person den Ausgang erreicht |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/evakuierung-aufzug-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         """
 **Lesehilfe.** *Gegeben:* ein Gebäude mit Etagen $f = 1, \\dots, F$, je Etage $n_f$ Menschen mit Aufzugspflicht und $g_f$ Gehende; Treppe und Aufzug mit den Werten der Seitenleiste.
