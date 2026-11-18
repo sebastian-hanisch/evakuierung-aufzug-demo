@@ -214,10 +214,11 @@ def test_the_test_count_in_the_readme_matches_the_suite():
     assert f"{n} Tests in `tests/`" in README, n
 
 
-def test_the_readme_has_the_required_sections_and_the_live_link_marker():
+def test_the_readme_has_the_required_sections_and_the_live_link():
     for heading in ("## Warum dieses Problem", "## Modell", "## Methodik", "## Befunde (gemessen, keine Behauptungen)", "## Befunde und Korrekturen", "## Ehrliche Grenzen",
                     "## Verifikation", "## Dateistruktur", "## Bewusst nicht umgesetzt", "## Lokal ausführen", "## Tests ausführen"):
         assert heading in README, heading
-    assert "TODO nach dem Deploy" in README
+    assert "[→ Demo live ausprobieren](https://sebastianhanisch-evakuierung-aufzug-demo.streamlit.app/)" in README
+    assert "TODO nach dem Deploy" not in README
     for word in ("Behinderte", "Saatwert", "trägt "):
         assert word not in README

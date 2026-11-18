@@ -1,7 +1,6 @@
 # Evakuierung mit Aufzug: wo das Flussmodell endet – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-evakuierung-aufzug-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-evakuierung-aufzug-demo.streamlit.app/)**
 
 Fall-Demo für die Website „Sebastian Hanisch – Operations Research und Machine Learning“ (`demos.html`, Gruppe „Gesundheit und Rettung“). Ein Mini-Gebäude (2 bis 4 Etagen, 3 bis 6 Menschen je Etage, höchstens 24) wird geräumt: die **Treppe** als Fluss (Durchsatz je Zeitschritt), der **Aufzug** als Fahrten mit Kapazität, Halt an mehreren Etagen und einer Dauer nach der höchsten Etage. **Menschen mit eingeschränkter Mobilität** (Aufzugspflicht) dürfen nur den Aufzug nehmen, die übrigen wählen frei. Verglichen werden das **reine Flussmodell** (Zeitnetz, Maximalfluss), der **exakte Plan** (Aufzählung der Aufteilungen plus Pareto-DP über Fahrtenmengen) und der **Fluss mit Maschinenschranke** der Pflichtgruppe; der Wartebereich mit Rückstau ist vorgerechnet (CP-SAT, nicht in der App).
 
